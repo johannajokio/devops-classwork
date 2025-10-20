@@ -4,6 +4,7 @@ to predict the body mass of palmer penguins
 given their sex, species, and bill length in mm
 
 """
+
 import duckdb
 from palmerpenguins import penguins
 from pandas import get_dummies
