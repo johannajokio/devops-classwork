@@ -9,6 +9,7 @@ import duckdb
 from palmerpenguins import penguins
 from pandas import get_dummies
 from sklearn.linear_model import LinearRegression
+import joblib
 
 con = duckdb.connect("my-db.duckdb")
 df = penguins.load_penguins()
@@ -22,7 +23,4 @@ y = df["body_mass_g"]
 
 model = LinearRegression().fit(X, y)
 
-print(f"R^2 {model.score(X,y)}")
-print(f"Intercept {model.intercept_}")
-print(f"Columns {X.columns}")
-print(f"Coefficients {model.coef_}")
+joblib.dump(model, 'penguin_model.joblib')
